@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:warmingup/newPageGo.dart';
 
 void main() => runApp(MyApp());
 
@@ -46,6 +47,24 @@ class _HelloPageState extends State<HelloPage> {
             children: <Widget>[
               Text(_message,style: TextStyle(fontSize: 30)),
               Text('$counter',style: TextStyle(fontSize: 30)),
+              Container(
+                padding: EdgeInsets.only(right: 25, left: 25, top: 50),
+                child: Text("오늘 꼭 해보자", style: TextStyle(fontSize: 50),),
+              ),
+              Container(
+                width: MediaQuery.of(context).size.width/2,
+                height: MediaQuery.of(context).size.height/4,
+                child: CircleAvatar(
+                  backgroundImage: NetworkImage('https://picsum.photos/500'),
+                ),
+              ),
+              RaisedButton(
+                child: Text('화면 이동'),
+                onPressed: (){
+                  Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => AnotherPage()));
+                },
+              )
             ],
           )
       ),
