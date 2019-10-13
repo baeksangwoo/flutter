@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "48511011438",
+    "firebase_url": "https://gitserviceinsta.firebaseio.com",
+    "project_id": "gitserviceinsta",
+    "storage_bucket": "gitserviceinsta.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:48511011438:android:15cd1e187afe40a7b9f47f",
+        "android_client_info": {
+          "package_name": "com.ktdsbuddy.firebaseconnect"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "48511011438-b82napj8v6o5r4nak0ohc3naunj65qts.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ktdsbuddy.firebaseconnect",
+            "certificate_hash": "d1e7f39a6fd4dd0605df926f765f1d5d180c94e6"
+          }
+        },
+        {
+          "client_id": "48511011438-ib4rpublitea5f5tqganp7mqo1gj5o7t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCg_HRdU5RcWqyRPhG6GEyrLKDb_iiHU9U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "48511011438-ib4rpublitea5f5tqganp7mqo1gj5o7t.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

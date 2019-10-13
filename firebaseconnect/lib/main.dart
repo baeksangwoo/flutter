@@ -1,5 +1,6 @@
 import 'package:firebaseconnect/login_page.dart';
 import 'package:firebaseconnect/root_page.dart';
+import 'package:firebaseconnect/tab_page.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());
@@ -22,7 +23,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: LoginPage(),
+      home: RootPage(),
     );
   }
 }
