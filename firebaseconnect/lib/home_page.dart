@@ -1,25 +1,73 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebaseconnect/detail_stuff_page.dart';
+import 'package:firebaseconnect/two_main_page.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
+
   final FirebaseUser user;
 
   HomePage(this.user);
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       backgroundColor: Color.fromRGBO(244, 243, 243, 1),
+      drawer: Drawer(
+        child: ListView(
+          children: <Widget>[
+            UserAccountsDrawerHeader(
+              accountName: Text(user.displayName),
+              accountEmail: Text(user.email),
+              onDetailsPressed: () {},
+              otherAccountsPictures: <Widget>[
+                  CircleAvatar(
+                    backgroundColor: Colors.white30,
+                    backgroundImage: AssetImage(
+                        'assets/images/one.jpg'
+                    ),
+                  ), CircleAvatar(
+                  backgroundColor: Colors.brown.shade800,
+                  backgroundImage: AssetImage(
+                      'assets/images/five.jpg'
+                  ),
+                ), CircleAvatar(
+                  backgroundColor: Colors.brown.shade800,
+                  backgroundImage: AssetImage(
+                      'assets/images/four.jpg'
+                  ),
+                ),
+
+              ],
+              currentAccountPicture: CircleAvatar(
+                backgroundColor:
+                Theme.of(context).platform == TargetPlatform.iOS
+                    ? Colors.blue
+                    : Colors.white,
+                child: Image.network(user.photoUrl),
+              ),
+            ),
+            ListTile(
+              title: Text("처음 페이지 UI"),
+              trailing: Icon(Icons.arrow_forward),
+            ),
+            ListTile(
+              title: Text("두번째 페이지 UI"),
+              trailing: Icon(Icons.arrow_forward),
+              onTap: (){
+                Navigator.push(context,
+                MaterialPageRoute(builder: (context) => TwoMainPage(user)));
+              },
+            ),
+          ],
+        ),
+      ),
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.lightGreen,
         brightness: Brightness.light,
         elevation: 4,
-        leading: IconButton(
-            icon: Icon(
-              Icons.menu,
-              color: Colors.black87,
-            ),
-            onPressed: () {}),
       ),
       body: SafeArea(
         child: Column(
@@ -95,11 +143,11 @@ class HomePage extends StatelessWidget {
                     child: ListView(
                       scrollDirection: Axis.horizontal,
                       children: <Widget>[
-                        promoCard('assets/images/one.jpg', 'S Fold'),
-                        promoCard('assets/images/two.jpeg', '겔럭시 버즈'),
-                        promoCard('assets/images/three.jpg', '책가방'),
-                        promoCard('assets/images/four.jpg', '맥프로 2017' ),
-                        promoCard('assets/images/five.jpg', '기가지니 버즈'),
+                        promoCard('assets/images/one.jpg', 'S Fold',context),
+                        promoCard('assets/images/two.jpeg', '겔럭시 버즈',context),
+                        promoCard('assets/images/three.jpg', '책가방',context),
+                        promoCard('assets/images/four.jpg', '맥프로 2017' ,context),
+                        promoCard('assets/images/five.jpg', '기가지니 버즈',context),
                       ],
                     ),
                   ),
@@ -147,39 +195,50 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  Widget promoCard(image,text) {
+
+
+  Widget promoCard(image,text,BuildContext context) {
     return AspectRatio(
       aspectRatio: 2.62 / 3,
-      child: Container(
-        margin: EdgeInsets.only(right: 15),
-        decoration: BoxDecoration(
-          color: Colors.orange,
-          borderRadius: BorderRadius.circular(20),
-          image: DecorationImage(
-            fit: BoxFit.cover,
-            image: AssetImage(image),
-          ),
-        ),
+      child: InkWell(
+        onTap: () {
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) => MyDetailPage()));
+        },
         child: Container(
+          margin: EdgeInsets.only(right: 15),
           decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(20),
-              gradient: LinearGradient(begin: Alignment.bottomRight, stops: [
-                0.1,
-                0.95
-              ], colors: [
-                Colors.black.withOpacity(.8),
-                Colors.black.withOpacity(.1),
-              ])),
-            child: Align(
-              alignment: Alignment.bottomLeft,
-              child: Padding(
-                  padding: const EdgeInsets.all(15.0),
-                  child: Text(
-                    text,
-                    style: TextStyle(color: Colors.white, fontSize: 15),
-                  )),
-            )),
+            color: Colors.orange,
+            borderRadius: BorderRadius.circular(20),
+            image: DecorationImage(
+              fit: BoxFit.cover,
+              image: AssetImage(image),
+            ),
+          ),
+          child: Container(
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20),
+                gradient: LinearGradient(begin: Alignment.bottomRight, stops: [
+                  0.1,
+                  0.95
+                ], colors: [
+                  Colors.black.withOpacity(.8),
+                  Colors.black.withOpacity(.1),
+                ])),
+              child: Align(
+                alignment: Alignment.bottomLeft,
+                child: Padding(
+                    padding: const EdgeInsets.all(15.0),
+                    child: Text(
+                      text,
+                      style: TextStyle(color: Colors.white, fontSize: 15),
+                    )),
+              )),
+        ),
       ),
     );
+
   }
+
+
 }

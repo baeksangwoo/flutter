@@ -1,7 +1,10 @@
 import 'package:firebaseconnect/login_page.dart';
 import 'package:firebaseconnect/root_page.dart';
 import 'package:firebaseconnect/tab_page.dart';
+import 'package:firebaseconnect/two_main_page.dart';
 import 'package:flutter/material.dart';
+
+import 'detail_stuff_page.dart';
 
 void main() => runApp(MyApp());
 
@@ -24,6 +27,9 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: RootPage(),
+        routes: <String, WidgetBuilder>{
+          '/detail-page' : (BuildContext context) => MyDetailPage(),
+        }
     );
   }
 }
