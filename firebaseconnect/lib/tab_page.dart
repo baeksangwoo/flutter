@@ -40,8 +40,8 @@ class _TabPageState extends State<TabPage> {
         onTap: _onTabEvent,
         currentIndex: _selectedIndex,
         items: <BottomNavigationBarItem>[
-        BottomNavigationBarItem(icon: Icon(Icons.home), title: Text('Home')),
-        BottomNavigationBarItem(icon: Icon(Icons.search), title: Text('Search')),
+        BottomNavigationBarItem(icon: Icon(Icons.widgets), title: Text('메인페이지')),
+        BottomNavigationBarItem(icon: Icon(Icons.add_a_photo), title: Text('습득물')),
         BottomNavigationBarItem(icon: Icon(Icons.account_circle), title: Text('Account')),
       ],),
     );

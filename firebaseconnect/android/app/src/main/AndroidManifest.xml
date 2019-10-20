@@ -11,9 +11,11 @@
 
     <application
         android:name="io.flutter.app.FlutterApplication"
-        android:label="가즈아"
+        android:label="Emozac"
         android:icon="@mipmap/ic_launcher">
-
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyCg_HRdU5RcWqyRPhG6GEyrLKDb_iiHU9U" />
 
         <activity
             android:name=".MainActivity"

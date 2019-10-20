@@ -40,11 +40,7 @@ class _SearchPageState extends State<SearchPage> {
 
           var items = snapshot.data?.documents ?? [];
 
-          print('이걸아아아아아아아아아 ');
-
           print(items[0]['photoUrl']);
-
-          print('이걸아아아아아아아아아 ');
 
           return GridView.builder(
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
