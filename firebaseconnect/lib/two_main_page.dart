@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebaseconnect/create_page.dart';
 import 'package:firebaseconnect/detail_post_page.dart';
+import 'package:firebaseconnect/detail_stuff_page.dart';
 import 'package:firebaseconnect/home_page.dart';
 import 'package:flutter/material.dart';
 
@@ -143,37 +144,43 @@ class _TwoMainPageState extends State<TwoMainPage> {
   }
 
   Widget promoCard(image,text) {
-    return AspectRatio(
-      aspectRatio: 2.62 / 3,
-      child: Container(
-        margin: EdgeInsets.only(right: 15),
-        decoration: BoxDecoration(
-          color: Colors.orange,
-          borderRadius: BorderRadius.circular(20),
-          image: DecorationImage(
-            fit: BoxFit.cover,
-            image: AssetImage(image),
-          ),
-        ),
+    return InkWell(
+      onTap: (){
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) => MyDetailPage(image,text)));
+      },
+      child: AspectRatio(
+        aspectRatio: 2.62 / 3,
         child: Container(
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20),
-                gradient: LinearGradient(begin: Alignment.bottomRight, stops: [
-                  0.1,
-                  0.95
-                ], colors: [
-                  Colors.black.withOpacity(.8),
-                  Colors.black.withOpacity(.1),
-                ])),
-            child: Align(
-              alignment: Alignment.bottomLeft,
-              child: Padding(
-                  padding: const EdgeInsets.all(15.0),
-                  child: Text(
-                    text,
-                    style: TextStyle(color: Colors.white, fontSize: 15),
-                  )),
-            )),
+          margin: EdgeInsets.only(right: 15),
+          decoration: BoxDecoration(
+            color: Colors.orange,
+            borderRadius: BorderRadius.circular(20),
+            image: DecorationImage(
+              fit: BoxFit.cover,
+              image: AssetImage(image),
+            ),
+          ),
+          child: Container(
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                  gradient: LinearGradient(begin: Alignment.bottomRight, stops: [
+                    0.1,
+                    0.95
+                  ], colors: [
+                    Colors.black.withOpacity(.8),
+                    Colors.black.withOpacity(.1),
+                  ])),
+              child: Align(
+                alignment: Alignment.bottomLeft,
+                child: Padding(
+                    padding: const EdgeInsets.all(15.0),
+                    child: Text(
+                      text,
+                      style: TextStyle(color: Colors.white, fontSize: 15),
+                    )),
+              )),
+        ),
       ),
     );
   }

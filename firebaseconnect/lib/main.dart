@@ -9,6 +9,7 @@ import 'detail_stuff_page.dart';
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
+  var texts;
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -28,7 +29,7 @@ class MyApp extends StatelessWidget {
       ),
       home: RootPage(),
         routes: <String, WidgetBuilder>{
-          '/detail-page' : (BuildContext context) => MyDetailPage(),
+          '/detail-page' : (BuildContext context) => MyDetailPage(context,texts),
         }
     );
   }

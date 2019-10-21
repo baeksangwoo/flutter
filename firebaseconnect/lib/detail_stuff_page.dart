@@ -2,15 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:smooth_star_rating/smooth_star_rating.dart';
 
 class MyDetailPage extends StatefulWidget {
+
+  final dynamic simage;
+  final dynamic stext;
+  MyDetailPage(this.simage, this.stext);
+
   @override
   _MyDetailPageState createState() => _MyDetailPageState();
 }
 
 class _MyDetailPageState extends State<MyDetailPage> {
   final List<String> title = <String>[
-    'Sushi den',
-    'hatsuhana Sushi',
-    'Sushi maki'
+    '사당 5 지구대',
+    '낙성대 지하철 보관실',
+    '보성 중학교 원무실'
   ];
 
   final List<String> image = <String>[
@@ -54,7 +59,13 @@ class _MyDetailPageState extends State<MyDetailPage> {
                   child: Column(
                     children: <Widget>[
                       Container(
-                        child: Image.asset('assets/menu-1-yoshimasa-sushi.png'),
+                        width: 180,
+                        height: 180,
+                        child: CircleAvatar(
+                          backgroundImage: AssetImage(
+                            widget.simage
+                          ),
+                        ),
                       ),
                       Column(
                         children: <Widget>[
@@ -62,7 +73,7 @@ class _MyDetailPageState extends State<MyDetailPage> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: <Widget>[
                               Text(
-                                "Yoshimasa Sushi",
+                                widget.stext,
                                 style: TextStyle(
                                   fontFamily: 'Montserrat-SemiBold',
                                   fontSize: 20,
@@ -141,7 +152,7 @@ class _MyDetailPageState extends State<MyDetailPage> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
                         Text(
-                          "Resturants",
+                          "Public Inst",
                           style: TextStyle(
                             fontFamily: 'Montserrat-Bold',
                             fontSize: 24,

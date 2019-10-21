@@ -203,7 +203,7 @@ class HomePage extends StatelessWidget {
       child: InkWell(
         onTap: () {
           Navigator.push(context,
-              MaterialPageRoute(builder: (context) => MyDetailPage()));
+              MaterialPageRoute(builder: (context) => MyDetailPage(image,text)));
         },
         child: Container(
           margin: EdgeInsets.only(right: 15),
