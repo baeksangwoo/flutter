@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "48511011438-e5pjqed216hi4ipooacjo0uuqahvpb55.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ktdsbuddy.firebaseconnect",
+            "certificate_hash": "e7e385fcc4fae6a34d4b5b05152daf37affb4307"
+          }
+        },
+        {
           "client_id": "48511011438-t8758sos7mjrovq2tvggs5mboqe3rpfq.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
