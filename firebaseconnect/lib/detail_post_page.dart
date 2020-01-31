@@ -10,7 +10,7 @@ class DetailPostPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('ㄷㅜㄹㄹㅓㅂㅗㄱㅣ'),
+        title: Text('둘러보기'),
       ),
       body: _buildBody(),
     );

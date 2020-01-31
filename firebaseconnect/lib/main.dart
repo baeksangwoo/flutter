@@ -22,9 +22,15 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        home: ChangeNotifierProvider<BottomNavigationBarProvider>.value(
-          value: BottomNavigationBarProvider(),
-          child: ChunoTabPage())
+        home: RootPage(),
+        routes: <String, WidgetBuilder>{
+          '/detail-page': (BuildContext context) =>
+              MyDetailPage(context, texts),
+        }
+
+//        ChangeNotifierProvider<BottomNavigationBarProvider>.value(
+//          value: BottomNavigationBarProvider(),
+//          child: ChunoTabPage())
 
 //      RootPage(),
 //        routes: <String, WidgetBuilder>{

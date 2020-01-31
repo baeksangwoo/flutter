@@ -18,7 +18,7 @@ class LoginPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(
-              'Instagram Page',
+              'Chuno DS',
               style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
             ),
             Padding(
@@ -33,7 +33,16 @@ class LoginPage extends StatelessWidget {
                    print(user);
                  });
               },
-            )
+            ),SignInButton(
+              Buttons.Facebook,
+              onPressed: () {
+                 _handelSignIn().then((user){
+                   Navigator.pushReplacement(context,
+                       MaterialPageRoute(builder: (context)=> TabPage(user)));
+                   print(user);
+                 });
+              },
+            ),
           ],
         ),
       ),

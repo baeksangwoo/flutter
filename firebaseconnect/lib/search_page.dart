@@ -16,15 +16,20 @@ class SearchPage extends StatefulWidget {
 class _SearchPageState extends State<SearchPage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: _buildBody(),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Navigator.push(context,
-              MaterialPageRoute(builder: (context) => CreatePage(widget.user)));
-        },
-        child: Icon(Icons.create),
-        backgroundColor: Colors.blueAccent,
+    return SafeArea(
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text('실시간 분실물'),
+        ),
+        body: _buildBody(),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => CreatePage(widget.user)));
+          },
+          child: Icon(Icons.create),
+          backgroundColor: Colors.blueAccent,
+        ),
       ),
     );
   }

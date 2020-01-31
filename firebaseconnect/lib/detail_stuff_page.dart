@@ -62,9 +62,7 @@ class _MyDetailPageState extends State<MyDetailPage> {
                         width: 180,
                         height: 180,
                         child: CircleAvatar(
-                          backgroundImage: AssetImage(
-                            widget.simage
-                          ),
+                          backgroundImage:  NetworkImage(widget.simage)
                         ),
                       ),
                       Column(

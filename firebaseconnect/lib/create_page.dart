@@ -34,7 +34,7 @@ class _CreatePageState extends State<CreatePage> {
       body: _buildBody(),
       floatingActionButton: FloatingActionButton(
         onPressed: _getImage,
-        child: Icon(Icons.add_a_photo),
+        child: Icon(Icons.add_a_photo,),
       ),
     );
   }
@@ -47,6 +47,7 @@ class _CreatePageState extends State<CreatePage> {
           final firebaseStorageRef = FirebaseStorage.instance
               .ref()
               .child('post')
+              .child(widget.user.uid)
               .child('${DateTime.now().millisecondsSinceEpoch}.png');
           final task = firebaseStorageRef.putFile(
             _image, StorageMetadata(contentType: 'image/png')
@@ -55,14 +56,15 @@ class _CreatePageState extends State<CreatePage> {
             var downloadUrl = value.ref.getDownloadURL();
 
             downloadUrl.then((uri){
-              var doc = Firestore.instance.collection('post').document();
+              var doc = Firestore.instance.collection('post').document(widget.user.uid);
               doc.setData({
                 'id': doc.documentID,
                 'photoUrl': uri.toString(),
                 'contents': textEditingController.text,
                 'user': widget.user.displayName,
                 'email': widget.user.email,
-                'userPhotoUrl': widget.user.photoUrl
+                'userPhotoUrl': widget.user.photoUrl,
+                'userUid': widget.user.uid,
               }).then((onvalue){
                 Navigator.pop(context);
               });
